@@ -37,7 +37,9 @@ func pagerExecPath() (pagerPath string, args []string, err error) {
 		pagerPath = os.Getenv(testVar)
 		if pagerPath != "" {
 			args = strings.Fields(pagerPath)
-			if len(args) > 1 {
+			if len(args) == 1 {
+				return args[0], nil, nil
+			} else if len(args) > 1 {
 				return args[0], args[1:], nil
 			}
 		}
