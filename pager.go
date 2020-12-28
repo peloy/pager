@@ -72,9 +72,7 @@ func pagerExecPath() (pagerPath string, args []string, err error) {
 // are looked for in $PATH.
 func New() (*Pager, error) {
 	p := &Pager{}
-	if p.cmd != nil {
-		return nil, errors.New("Pager: already exists")
-	}
+
 	pagerPath, args, err := pagerExecPath()
 	if err != nil {
 		return nil, err
